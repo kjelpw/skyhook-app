@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Skyhook Timers</h1>
+<table>
+    <thead>
+        <tr>
+            <th>System</th>
+            <th>Planet</th>
+            <th>Countdown</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for timer in timers %}
+        <tr>
+            <td>{{ timer.eve_system }}</td>
+            <td>{{ timer.planet_number }}</td>
+            <td>
+                {% if timer.time_remaining %}
+                {{ timer.time_remaining.days }}d {{ timer.time_remaining.seconds|divisibleby:3600 }}h
+                {% else %}
+                Timer expired
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
