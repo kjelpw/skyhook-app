@@ -1,0 +1,14 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "skyhook-app"
+version = "0.0.1"
+description = "Alliance Auth app for tracking Skyhook timers "
+authors = [{name = "kjelpw", email = ""}]
+license = "MIT"
+dependencies = [
+    "",
+    ""
+]
