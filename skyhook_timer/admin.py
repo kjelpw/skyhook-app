@@ -2,7 +2,9 @@ from django.contrib import admin
 from .models import SkyhookTimer
 
 class SkyhookTimerAdmin(admin.ModelAdmin):
-    list_display = ('name', 'duration', 'created_at')
+    list_display = ('eve_system', 'planet_number', 'countdown_time', 'time_remaining')
+    search_fields = ('eve_system',)
+    list_filter = ('countdown_time',)
 
     # Restrict the permission to add or change timers
     def has_add_permission(self, request):
