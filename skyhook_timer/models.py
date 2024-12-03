@@ -19,6 +19,27 @@ class SkyhookTimer(models.Model):
         remaining = self.time_remaining
         return remaining.seconds // 3600 if remaining else None
 
+    def save(self, *args, **kwargs):
+        """
+        Override save to ensure only one timer per system and planet exists.
+        If a timer with the same eve_system and planet_number exists, it will be overwritten.
+        """
+        # Check for existing timers with the same system and planet
+        existing_timer = SkyhookTimer.objects.filter(
+            eve_system=self.eve_system,
+            planet_number=self.planet_number,
+        ).exclude(pk=self.pk).first()
+
+        # If such a timer exists, delete it
+        if existing_timer:
+            existing_timer.delete()
+
+        # Save the new/updated timer
+        super().save(*args, **kwargs)
+    
+    class Meta:
+        unique_together = ('eve_system', 'planet_number')
+
     def __str__(self):
         return f"{self.eve_system} - Planet {self.planet_number} - {self.countdown_time}"
 
