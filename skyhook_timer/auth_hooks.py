@@ -20,10 +20,9 @@ class SkyhookTimerMenuItem(MenuItemHook):
         )
 
     def render(self, request):
-        return MenuItemHook.render(self, request)
-        # if request.user.is_member:
-        #     return MenuItemHook.render(self, request)
-        # return ""
+        if request.user.has_perm('skyhook_timer.view_skyhooktimer'):
+            return MenuItemHook.render(self, request)
+        return ''
 
 
 @hooks.register("menu_item_hook")

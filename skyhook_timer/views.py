@@ -1,11 +1,12 @@
 from django.shortcuts import render
+from django.contrib.auth.decorators import permission_required
 
 from .models import SkyhookTimer
 import logging
 logger = logging.getLogger(__name__)
 # from django.contrib.auth.decorators import state_required
 
-# @state_required(['Member'])
+@permission_required("skyhook_timer.view_skyhooktimer")
 def skyhook_timer_view(request):
     # Get all timers for the member to view
     timers = SkyhookTimer.objects.all()
