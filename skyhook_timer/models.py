@@ -14,3 +14,4 @@ class SkyhookTimer(models.Model):
 
     def __str__(self):
         return f"{self.eve_system} - Planet {self.planet_number} - {self.countdown_time}"
+
