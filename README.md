@@ -4,7 +4,15 @@ Alliance Auth plugin for tracking Skyhook timers
 # Install
 https://pypi.org/project/skyhook-timer/
 
+add to local.py
+
+### Permissions
+Add skyhook_timer.view_skyhooktimer permission to users/groups/states that you would like to view timers
+
 # CHANGELOG
+
+### 0.0.34
+- Permission skyhook_timer.view_skyhooktimer required to view
 
 ### 0.0.22
 - Working html rendering
