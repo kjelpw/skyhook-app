@@ -6,6 +6,9 @@ https://pypi.org/project/skyhook-timer/
 
 # CHANGELOG
 
+### 0.0.22
+- Working html rendering
+
 ### 0.0.8
 - Redo most of everything
 
