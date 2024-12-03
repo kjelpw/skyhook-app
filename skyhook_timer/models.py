@@ -36,9 +36,6 @@ class SkyhookTimer(models.Model):
 
         # Save the new/updated timer
         super().save(*args, **kwargs)
-    
-    class Meta:
-        unique_together = ('eve_system', 'planet_number')
 
     def __str__(self):
         return f"{self.eve_system} - Planet {self.planet_number} - {self.countdown_time}"
