@@ -5,8 +5,8 @@ from datetime import timedelta
 from allianceauth import hooks
 from allianceauth.services.hooks import MenuItemHook, UrlHook
 
-from .models import SkyhookTimer
-from . import urls
+from skyhook_timer.models import SkyhookTimer
+from skyhook_timer import urls
 
 
 class SkyhookTimerMenuItem(MenuItemHook):
