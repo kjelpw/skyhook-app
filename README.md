@@ -46,5 +46,5 @@ Can view skyhook timer | Allows viewing of the nav menu link, and rendering of t
 
 # CHANGELOG
 
-### 0.0.41
+### 0.0.43
 - Limited stable release
