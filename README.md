@@ -1,7 +1,29 @@
 # skyhook-app
-Alliance Auth (https://allianceauth.readthedocs.io/en/v4.4.2/index.html) plugin for tracking Skyhook timers
+![python release](https://pypi.org/project/skyhook-timer/)
 
-https://pypi.org/project/skyhook-timer/
+Plugin for tracking Skyhook timers in ![Alliance Auth](https://allianceauth.readthedocs.io/en/v4.4.2/index.html)
+
+## Contents
+
+- [Key Features](#key-features)
+- [Screenshots](#screenshots)
+- [Installation](#installation)
+- [Permissions](#permissions)
+
+## Key Features
+* Adding a table entry with system name, planet, and countdown time remaining
+* Alliance Auth nav menu count of Skyhooks close to their vulnerable timer
+
+## Screenshots
+
+### View timers
+![image](https://github.com/user-attachments/assets/12dc48a9-6491-4fc8-bd1a-ce80461d4da7)
+
+### Add a timer (or update an existing one)
+![image](https://github.com/user-attachments/assets/0f217720-e334-466c-bc4b-b0d154e3dbab)
+
+### Admin view
+![image](https://github.com/user-attachments/assets/6e31a26f-eefa-4ed9-8882-145eeb7e1e61)
 
 
 ## Installation
