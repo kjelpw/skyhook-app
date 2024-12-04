@@ -16,9 +16,9 @@ class SkyhookTimerMenuItem(MenuItemHook):
         # setup menu entry for sidebar
         MenuItemHook.__init__(
             self,
-            _("skyhook_timer"),
+            _("Skyhook Timer"),
             "fas fa-clock",
-            "skyhook_timer:view_timers",
+            "skyhook_timer:view_skyhook_timers",
             navactive=["skyhook_timer:"],
         )
 
@@ -45,4 +45,4 @@ def register_menu():
 
 @hooks.register("url_hook")
 def register_urls():
-    return UrlHook(urls, "skyhook_timer", r"^view_timers/")
+    return UrlHook(urls, "skyhook_timer", r"^view_skyhook_timers/")

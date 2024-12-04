@@ -14,6 +14,6 @@ def skyhook_timer_view(request):
         timers,
         key=lambda t: (t.time_remaining is None, t.time_remaining)
     )
-    logger.info("Rendering the view_timers template")
+    logger.info("Rendering the view_skyhook_timers template")
     # Render the view, allow "Members" to see but not interact with the data
-    return render(request, 'skyhook_timer/view_timers.html', {'timers': sorted_timers})
+    return render(request, 'skyhook_timer/view_skyhook_timers.html', {'timers': sorted_timers})
