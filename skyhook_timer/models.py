@@ -18,6 +18,19 @@ class SkyhookTimer(models.Model):
         """Calculate the remaining hours from the time delta."""
         remaining = self.time_remaining
         return remaining.seconds // 3600 if remaining else None
+    
+    @property
+    def minutes_remaining(self):
+        """Calculate the remaining minutes from the time delta."""
+        remaining = self.time_remaining
+        return (remaining.seconds % 3600) // 60 if remaining else None
+    
+    @property
+    def seconds_remaining(self):
+        """Calculate the remaining seconds from the time delta."""
+        remaining = self.time_remaining
+        return remaining.seconds % 60 if remaining else None
+
 
     def save(self, *args, **kwargs):
         """

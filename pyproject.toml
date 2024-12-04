@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "skyhook-timer"
-version = "0.0.36"
+version = "0.0.41"
 description = "A Skyhook Timer app for Alliance Auth."
 readme = "README.md"
 authors = [{name = "kjelpw", email = "kjelpw@protonmail.com"}]
