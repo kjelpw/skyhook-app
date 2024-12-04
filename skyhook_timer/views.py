@@ -23,7 +23,7 @@ def skyhook_timer_view(request):
 def add_skyhook_timer_view(request):
     """View for adding a new Skyhook Timer."""
     if request.method == "POST":
-        form = SkyhookTimerForm(request.POST)
+        form = SkyhookTimerForm(request.POST or None)
         if form.is_valid():
             form.save()
             return redirect('skyhook_timer:view_skyhook_timers')

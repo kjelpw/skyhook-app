@@ -50,6 +50,14 @@ class SkyhookTimer(models.Model):
         # Save the new/updated timer
         super().save(*args, **kwargs)
 
+    def Meta():
+        default_permissions = ()
+        permissions = (
+            ('add_skyhooktimer', 'Can add skyhook timer'),
+            ('view_skyhooktimer', 'Can view skyhook timer'),
+        )
+
+
     def __str__(self):
         return f"{self.eve_system} - Planet {self.planet_number} - {self.countdown_time}"
 
