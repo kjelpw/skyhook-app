@@ -1,43 +1,50 @@
 # skyhook-app
 Alliance Auth plugin for tracking Skyhook timers
 
-# Install
 https://pypi.org/project/skyhook-timer/
 
-add to local.py
 
-### Permissions
-Add skyhook_timer.view_skyhooktimer permission to users/groups/states that you would like to view timers
+## Installation
+
+### 1 - Install app
+
+Install into your Alliance Auth virtual environment from PyPI:
+
+```bash
+pip install skyhook-timer
+```
+
+### 2 - Configure AA settings
+
+Add `'skyhook_timer'` to `INSTALLED_APPS`
+
+### 3 - Finalize installation into AA
+
+Run migrations & copy static files
+
+```bash
+python manage.py migrate
+python manage.py collectstatic
+```
+
+Restart your supervisor services for AA
+
+### 4 - Setup permissions
+
+Now you can access Alliance Auth and setup permissions for your users. See below
+
+## Permissions
+
+This is an overview of all permissions used by this app:
+
+Name | Purpose | Code
+-- | -- | --
+Can add skyhook timer | Can create a unique skyhook timer with system/planet and time. If the system/planet timer exists already it overwrites | add_skyhooktimer
+Can change skyhook timer | Edit existing skyhook timers | change_skyhooktimer
+Can delete skyhook timer | Removes a skyhook timer from the list | delete_skyhooktimer
+Can view skyhook timer | Allows viewing of the nav menu link, and rendering of the skyhook timer page. This should be added to all users/members/states/groups that should be able to view skyhook timers | view_skyhooktimer
 
 # CHANGELOG
 
-### 0.0.34
-- Permission skyhook_timer.view_skyhooktimer required to view
-
-### 0.0.22
-- Working html rendering
-
-### 0.0.8
-- Redo most of everything
-
-### 0.0.7
-- Update html to use old names
-
-### 0.0.6
-- Remove ready def
-
-### 0.0.5
-- Remove plugins.py
-
-### 0.0.4
-- Remove references to allianceauth.plugins
-
-### 0.0.3
-- Add app.py for nav bar
-
-### 0.0.2
-- Update so members can view timers
-
-### 0.0.1
-- initial test release
-- admins can view and edit skyhooks
+### 0.0.41
+- Limited stable release
