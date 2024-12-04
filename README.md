@@ -1,5 +1,5 @@
 # skyhook-app
-Alliance Auth plugin for tracking Skyhook timers
+Alliance Auth (https://allianceauth.readthedocs.io/en/v4.4.2/index.html) plugin for tracking Skyhook timers
 
 https://pypi.org/project/skyhook-timer/
 
