@@ -26,7 +26,11 @@
                 <td>{{ timer.planet_number }}</td>
                 <td>
                     {% if timer.time_remaining %}
-                        {{ timer.time_remaining.days }}d {{ timer.hours_remaining }}h
+                        <div class="{% if timer.time_remaining.total_seconds < 3600 %}text-warning{% endif %}">
+                            <p>
+                                {{ timer.time_remaining.days }}d {{ timer.hours_remaining }}h {{ timer.minutes_remaining }}m {{ timer.seconds_remaining }}s
+                            </p>
+                        </div>
                     {% else %}
                         <span class="text-danger">Timer expired</span>
                     {% endif %}
