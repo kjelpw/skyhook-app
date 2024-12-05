@@ -1,7 +1,7 @@
 # skyhook-app
-![python release](https://pypi.org/project/skyhook-timer/)
+[python release](https://pypi.org/project/skyhook-timer/)
 
-Plugin for tracking Skyhook timers in ![Alliance Auth](https://allianceauth.readthedocs.io/en/v4.4.2/index.html)
+Plugin for tracking Skyhook timers in [Alliance Auth](https://allianceauth.readthedocs.io/en/v4.4.2/index.html)
 
 ## Contents
 
