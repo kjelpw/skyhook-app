@@ -13,6 +13,7 @@ Plugin for tracking Skyhook timers in [Alliance Auth](https://allianceauth.readt
 ## Key Features
 * Adding a table entry with system name, planet, and countdown time remaining
 * Alliance Auth nav menu count of Skyhooks close to their vulnerable timer
+* Discord webhook integration
 
 ## Screenshots
 
@@ -38,7 +39,16 @@ pip install skyhook-timer
 
 ### 2 - Configure AA settings
 
+in local.py:
 Add `'skyhook_timer'` to `INSTALLED_APPS`
+Add `SKYHOOK_WEBHOOK_URL = <your-discord-webhook-here>`
+Add
+```
+CELERYBEAT_SCHEDULE['notify_skyhook_timer'] = {
+    'task': 'skyhook_timer.tasks.notify_skyhook_timer',
+    'schedule': crontab(minute='*'),  # Runs every minute
+}
+```
 
 ### 3 - Finalize installation into AA
 
@@ -65,6 +75,10 @@ Can add skyhook timer | Can create a unique skyhook timer with system/planet and
 Can view skyhook timer | Allows viewing of the nav menu link, and rendering of the skyhook timer page. This should be added to all users/members/states/groups that should be able to view skyhook timers | view_skyhooktimer
 
 # CHANGELOG
+
+### 0.0.65
+- Update html to Alliance Auth v5
+- Add Discord webhook functionality
 
 ### 0.0.49
 - Better Skyhook Adding, matches ingame time system.
