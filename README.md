@@ -77,6 +77,8 @@ Can view skyhook timer | Allows viewing of the nav menu link, and rendering of t
 # CHANGELOG
 
 ### 0.0.65
+- Update html to Alliance Auth v5
+- Add Discord webhook functionality
 
 ### 0.0.49
 - Better Skyhook Adding, matches ingame time system.
