@@ -1,6 +1,13 @@
-{% extends 'allianceauth/base.html' %}
+{% extends 'allianceauth/base-bs5.html' %}
 {% load i18n %}
-{% load navactive %}
+
+{% block page_title %}
+    {% translate "Skyhook Timer" %}
+{% endblock %}
+
+{% block header_nav_brand %}
+    {% translate "Skyhook Timer" %}
+{% endblock header_nav_brand %}
 
 {% block content %}
 <div class="container">
