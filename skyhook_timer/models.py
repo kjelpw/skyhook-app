@@ -31,6 +31,29 @@ class SkyhookTimer(models.Model):
         remaining = self.time_remaining
         return remaining.seconds % 60 if remaining else None
 
+    @property
+    def time_expired(self):
+        """Calculate how long ago the timer expired."""
+        delta = now() - self.countdown_time
+        return delta if delta.total_seconds() > 0 else None
+    
+    @property
+    def days_expired(self):
+        """Calculate the number of days expired."""
+        expired = self.time_expired
+        return expired.days if expired else None
+    
+    @property
+    def hours_expired(self):
+        """Calculate the number of hours expired (excluding days)."""
+        expired = self.time_expired
+        return expired.seconds // 3600 if expired else None
+    
+    @property
+    def minutes_expired(self):
+        """Calculate the number of minutes expired (excluding hours)."""
+        expired = self.time_expired
+        return (expired.seconds % 3600) // 60 if expired else None
 
     def save(self, *args, **kwargs):
         """
