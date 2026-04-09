@@ -14,6 +14,32 @@ class SkyhookTimer(models.Model):
         return delta if delta.total_seconds() > 0 else None
     
     @property
+    def time_since_expiration(self):
+        """Calculate time elapsed since expiration."""
+        if self.time_remaining is not None:
+            return None
+        delta = now() - self.countdown_time
+        return delta
+    
+    @property
+    def hours_since_expiration(self):
+        """Calculate hours since expiration."""
+        elapsed = self.time_since_expiration
+        return elapsed.seconds // 3600 if elapsed else None
+    
+    @property
+    def minutes_since_expiration(self):
+        """Calculate minutes since expiration."""
+        elapsed = self.time_since_expiration
+        return (elapsed.seconds % 3600) // 60 if elapsed else None
+    
+    @property
+    def seconds_since_expiration(self):
+        """Calculate seconds since expiration."""
+        elapsed = self.time_since_expiration
+        return elapsed.seconds % 60 if elapsed else None
+    
+    @property
     def hours_remaining(self):
         """Calculate the remaining hours from the time delta."""
         remaining = self.time_remaining
