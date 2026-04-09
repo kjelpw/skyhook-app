@@ -1,3 +1,5 @@
+from functools import cached_property
+
 from django.db import models
 from django.utils.timezone import now
 
@@ -12,6 +14,32 @@ class SkyhookTimer(models.Model):
         """Calculate remaining time for the timer."""
         delta = self.countdown_time - now()
         return delta if delta.total_seconds() > 0 else None
+    
+    @cached_property
+    def time_since_expiration(self):
+        """Calculate time elapsed since expiration."""
+        if self.time_remaining is not None:
+            return None
+        delta = now() - self.countdown_time
+        return delta
+
+    @property
+    def hours_since_expiration(self):
+        """Calculate hours since expiration."""
+        elapsed = self.time_since_expiration
+        return elapsed.seconds // 3600 if elapsed is not None else None
+
+    @property
+    def minutes_since_expiration(self):
+        """Calculate minutes since expiration."""
+        elapsed = self.time_since_expiration
+        return (elapsed.seconds % 3600) // 60 if elapsed is not None else None
+
+    @property
+    def seconds_since_expiration(self):
+        """Calculate seconds since expiration."""
+        elapsed = self.time_since_expiration
+        return elapsed.seconds % 60 if elapsed is not None else None
     
     @property
     def hours_remaining(self):

@@ -30,7 +30,11 @@
                             </p>
                         </div>
                     {% else %}
-                        <span class="text-danger">Timer expired</span>
+                        <div class="text-danger">
+                            <strong>EXPIRED</strong><br>
+                            <small>Expired at: {{ timer.countdown_time|date:"Y-m-d H:i:s" }}</small><br>
+                            <small>Time since: {{ timer.time_since_expiration.days }}d {{ timer.hours_since_expiration }}h {{ timer.minutes_since_expiration }}m {{ timer.seconds_since_expiration }}s ago</small>
+                        </div>
                     {% endif %}
                 </td>
             </tr>
