@@ -76,6 +76,10 @@ Can view skyhook timer | Allows viewing of the nav menu link, and rendering of t
 
 # CHANGELOG
 
+### 0.0.66
+- Show expiration timestamp for expired timers
+- Display time elapsed since expiration (days, hours, minutes, seconds)
+
 ### 0.0.65
 - Update html to Alliance Auth v5
 - Add Discord webhook functionality
