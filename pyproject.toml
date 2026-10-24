@@ -4,15 +4,27 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "skyhook-timer"
-version = "0.0.66"
+version = "0.0.67"
 description = "A Skyhook Timer app for Alliance Auth."
 readme = "README.md"
 authors = [{name = "kjelpw", email = "kjelpw@protonmail.com"}]
 license = {file = "LICENSE"}
 keywords = ["allianceauth", "eve-online", "skyhook", "timers"]
+requires-python = ">=3.10"
 dependencies = [
-    "django>=3.2",
+    "allianceauth>=4.0.0,<6",
     "discord.py>=2.4.0"
+]
+classifiers = [
+    "Environment :: Web Environment",
+    "Framework :: Django",
+    "Framework :: Django :: 4.2",
+    "Framework :: Django :: 5.2",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
 ]
 
 [tool.setuptools]

@@ -78,7 +78,7 @@ class SkyhookTimer(models.Model):
         # Save the new/updated timer
         super().save(*args, **kwargs)
 
-    def Meta():
+    class Meta:
         default_permissions = ()
         permissions = (
             ('add_skyhooktimer', 'Can add skyhook timer'),

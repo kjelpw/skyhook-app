@@ -1,6 +1,6 @@
 from celery import shared_task
 from discord import SyncWebhook, Embed
-from datetime import datetime, timedelta
+from datetime import timedelta
 from django.utils.timezone import now
 from django.conf import settings
 
@@ -11,6 +11,10 @@ def notify_skyhook_timer():
     """
     Notifies about an upcoming Skyhook timer via Discord.
     """
+    webhook_url = getattr(settings, "SKYHOOK_WEBHOOK_URL", None)
+    if not webhook_url:
+        return
+
     for timer in SkyhookTimer.objects.all():
         time_remaining = timer.time_remaining
         # Ensure the timer is still active and is 30 minutes away (exact window)
@@ -20,7 +24,7 @@ def notify_skyhook_timer():
                 timer_name=f"{timer.eve_system} - Planet {timer.planet_number}",
                 eve_system=timer.eve_system,
                 time_remaining=format_time_from_properties(timer),
-                webhook_url=getattr(settings, "SKYHOOK_WEBHOOK_URL")
+                webhook_url=webhook_url
             )
 
 
@@ -42,7 +46,7 @@ def send_skyhook_notification(timer_name, eve_system, time_remaining, webhook_ur
         title="Skyhook Timer Alert",
         description=f"The timer **{timer_name}** is about to expire!",
         color=0xFFFF00,  # Yellow color for warning
-        timestamp=datetime.utcnow(),
+        timestamp=now(),
     )
     embed.add_field(name="EVE System", value=eve_system, inline=False)
     embed.add_field(name="Time Remaining", value=time_remaining, inline=False)

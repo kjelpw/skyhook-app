@@ -1,1 +1,2 @@
 recursive-include skyhook_timer/templates *.html
+recursive-include skyhook_timer/static *

@@ -1,7 +1,9 @@
 # skyhook-app
 [python release](https://pypi.org/project/skyhook-timer/)
 
-Plugin for tracking Skyhook timers in [Alliance Auth](https://allianceauth.readthedocs.io/en/v4.4.2/index.html)
+Plugin for tracking Skyhook timers in [Alliance Auth](https://allianceauth.readthedocs.io/en/latest/index.html)
+
+Requires Alliance Auth 4.x or 5.x (tested with 5.5.0 on Django 5.2).
 
 ## Contents
 
@@ -61,6 +63,8 @@ python manage.py collectstatic
 
 Restart your supervisor services for AA
 
+> **Upgrading from 0.0.66 or earlier:** older releases shipped without a migration file. If `migrate` fails because the `skyhook_timer_skyhooktimer` table already exists, run `python manage.py migrate skyhook_timer --fake-initial` once.
+
 ### 4 - Setup permissions
 
 Now you can access Alliance Auth and setup permissions for your users. See below
@@ -75,6 +79,15 @@ Can add skyhook timer | Can create a unique skyhook timer with system/planet and
 Can view skyhook timer | Allows viewing of the nav menu link, and rendering of the skyhook timer page. This should be added to all users/members/states/groups that should be able to view skyhook timers | view_skyhooktimer
 
 # CHANGELOG
+
+### 0.0.67
+- Support the latest Alliance Auth (5.5) / Django 5.2
+- Timer list page now uses the Bootstrap 5 base template (`allianceauth/base.html` no longer exists)
+- Ship the initial database migration with the package
+- Fix model `Meta` so only the documented permissions are created
+- Replace removed `default_app_config` and deprecated `datetime.utcnow()`
+- Skip Discord notifications when `SKYHOOK_WEBHOOK_URL` is not set
+- Declare `allianceauth` as a dependency and require Python 3.10+
 
 ### 0.0.66
 - Show expiration timestamp for expired timers
